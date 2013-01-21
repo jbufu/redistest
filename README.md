@@ -41,18 +41,18 @@ so run them individually:
 
 executes and times Redistest.testSize "getChannelMessages" operations, using:
 
-- legacy DAO: the actual BackplaneMessageDAO.getMessagesByChannel from the 2012.46_RC7 jar
+- **legacy DAO**: the actual BackplaneMessageDAO.getMessagesByChannel from the 2012.46_RC7 jar
   performs sorting (which the other tests do not do)
 
 
-- JavaSerialized: reads the java serialized messages
+- **JavaSerialized**: reads the java serialized messages
   instantiates a BackplaneMessage from each serialized entry that is read
 
 
-- StringSerialized: reads the string version the converted messages
+- **StringSerialized**: reads the string version the converted messages
 
 
-- MapSerialized: reads the redis map version of the converted messages and
+- **MapSerialized**: reads the redis map version of the converted messages and
   executes .toString (prod would have to do toJsonString)
 
 
