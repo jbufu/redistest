@@ -27,32 +27,36 @@ Run tests
 Running all tests in one pass / same JVM instance with `sbt test` seems to favor the tests running last,
 so run them individually:
 
-        sbt
-        > test-only com.janrain.redistest.GetChannelLegacyDao
+    sbt
+    > test-only com.janrain.redistest.GetChannelLegacyDao
 
-        sbt
-        > test-only com.janrain.redistest.GetChannelJavaSerialized
+    sbt
+    > test-only com.janrain.redistest.GetChannelJavaSerialized
 
-        sbt
-        > test-only com.janrain.redistest.GetChannelStringSerialized
+    sbt
+    > test-only com.janrain.redistest.GetChannelStringSerialized
 
-        sbt
-        > test-only com.janrain.redistest.GetChannelMapSerialized
+    sbt
+    > test-only com.janrain.redistest.GetChannelMapSerialized
 
 executes and times Redistest.testSize "getChannelMessages" operations, using:
 
 - legacy DAO:
+
   the actual BackplaneMessageDAO.getMessagesByChannel from the 2012.46_RC7 jar
   performs sorting (which the other tests do not do)
 
 - JavaSerialized:
+
   reads the java serialized messages
   instantiates a BackplaneMessage from each serialized entry that is read
 
 - StringSerialized:
+
   reads the string version the converted messages
 
 - MapSerialized:
+
   reads the redis map version of the converted messages
   executes .toString (prod would have to do toJsonString)
 
