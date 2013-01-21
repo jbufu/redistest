@@ -15,10 +15,10 @@ Setup
     sbt run
 
 runs com.janrain.redistest.ConvertFromBp, which creates a copy of each message it finds as:
-- a redis map, prefixed with "redisTest-msg-map-"
-- a plain string redis entry, prefixed with "redisTest-msg-string-"
+- a redis map, prefixed with `redisTest-msg-map-`
+- a plain string redis entry, prefixed with `redisTest-msg-string-`
 
-also removes the expiry for all existing v1_message_* entries
+also removes the expiry for all existing `v1_message_*` entries
 
 
 Run tests
