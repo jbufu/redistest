@@ -23,14 +23,15 @@ object Redistest {
   println("loaded " + channelIds.size /*filter(_._2.size > 1).toMap*/ + " channel IDs")
 
 
-  def randomChannel = channelIds(random.nextInt(channelIds.size))
+  def randomChannels = for (x <- 1 to testSize) yield {channelIds(random.nextInt(channelIds.size))}
 
-  def getChannelMessages(redisLib: RedisMessageGetter)(channel: String) = {
-    val (ms, res) = time {
-      redisLib(getMessageIds(channel))
+  def getChannelMessages(redisLib: RedisMessageGetter)(channels: Seq[String]) =
+    for (channel <- channels) yield {
+      val (ms, res) = time {
+        redisLib(getMessageIds(channel))
+      }
+      ms -> res.size
     }
-    ms -> res.size
-  }
 
   /** function that takes a list of message IDs, returns list of messages */
   type RedisMessageGetter = List[String] => List[Any]
@@ -47,7 +48,7 @@ object Redistest {
     ((t1 - t0) / 1000000 , result)
   }
 
-  def printRes(who: String, res: IndexedSeq[(Long, Int)]) {
+  def printRes(who: String, res: Seq[(Long, Int)]) {
     val totalMsg = res.map(_._2).sum
     val totalMs = res.map(_._1).sum
     println("%s retrieved %d channels / %d total messages, %.1f average msgs/channel, %.3fms average channelGet"

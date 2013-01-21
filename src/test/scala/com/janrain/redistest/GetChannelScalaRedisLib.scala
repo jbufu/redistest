@@ -12,17 +12,17 @@ class GetChannelScalaRedisLib extends FunSuite {
 
 
   ignore("scalaLibGetSerialized") {
-    val res = for(x <- 1 to testSize) yield getChannelMessages(redisGetSerialized)(Redistest.randomChannel)
+    val res = getChannelMessages(redisGetSerialized)(Redistest.randomChannels)
     printRes("redis GetSerialized", res)
   }
 
   ignore("scalaLibGetStrings") {
-    val res = for(x <- 1 to testSize) yield getChannelMessages(redisGetStrings)(Redistest.randomChannel)
+    val res = getChannelMessages(redisGetStrings)(Redistest.randomChannels)
     printRes("redis    GetStrings", res)
   }
 
   ignore("scalaLibGetMaps") {
-    val res = for(x <- 1 to testSize) yield getChannelMessages(redisGetMaps)(Redistest.randomChannel)
+    val res = getChannelMessages(redisGetMaps)(Redistest.randomChannels)
     printRes("redis       GetMaps", res)
   }
 

@@ -17,7 +17,7 @@ class GetChannelJavaSerialized extends FunSuite {
   }
 
   test("jedisGetSerialized") {
-    val res = for(x <- 1 to testSize) yield getChannelMessages(jedisGetSerialized)(Redistest.randomChannel)
+    val res = getChannelMessages(jedisGetSerialized)(Redistest.randomChannels)
     printRes("jedis GetChannel JavaSerialized", res)
   }
 
