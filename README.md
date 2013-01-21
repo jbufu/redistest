@@ -12,7 +12,7 @@ Setup
 
 2. Initialize test data (only once):
 
-    sbt run
+    `sbt run`
 
 runs com.janrain.redistest.ConvertFromBp, which creates a copy of each message it finds as:
 - a redis map, prefixed with `redisTest-msg-map-`
@@ -26,7 +26,7 @@ Run tests
 
 Adjust test size in Redistest.scala:
 
-    `val testSize = 100000`
+    val testSize = 100000
 
 Running all tests in one pass / same JVM instance with `sbt test` seems to favor the tests running last,
 so run them individually:
