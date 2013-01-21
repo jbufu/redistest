@@ -24,6 +24,10 @@ also removes the expiry for all existing `v1_message_*` entries
 Run tests
 ---------
 
+Adjust test size in Redistest.scala:
+
+    `val testSize = 100000`
+
 Running all tests in one pass / same JVM instance with `sbt test` seems to favor the tests running last,
 so run them individually:
 
