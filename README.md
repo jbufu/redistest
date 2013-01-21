@@ -45,15 +45,15 @@ executes and times Redistest.testSize "getChannelMessages" operations, using:
   this performs sorting (which the other tests do not do)
 
 
-- **JavaSerialized**: reads the java serialized messages
-  instantiates a BackplaneMessage from each serialized entry that is read
+- **JavaSerialized**: reads the java serialized messages (from `v1_message_*` keys)
+  and instantiates a BackplaneMessage from each serialized entry that is read
 
 
-- **StringSerialized**: reads the string version the converted messages
+- **StringSerialized**: reads the string version the converted messages (from `redisTest-msg-string-*` keys)
 
 
-- **MapSerialized**: reads the redis map version of the converted messages and
-  executes .toString (prod would have to do toJsonString)
+- **MapSerialized**: reads the redis map version of the converted messages (from `redisTest-msg-map-*` keys)
+  and executes .toString (prod would have to do toJsonString)
 
 
 
