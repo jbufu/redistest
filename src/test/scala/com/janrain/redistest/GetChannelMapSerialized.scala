@@ -16,7 +16,7 @@ class GetChannelMapSerialized extends FunSuite {
 
   test("jedisGetMaps") {
     val res = getChannelMessages(jedisGetMaps)(Redistest.randomChannels)
-    printRes("jedis    GetChannel MapSerialized", res)
+    printRes("jedis GetChannel MapSerialized   ", res)
   }
 
   val jedisGetMaps: RedisMessageGetter = msgIds => {

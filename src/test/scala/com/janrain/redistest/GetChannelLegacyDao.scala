@@ -17,7 +17,7 @@ class GetChannelLegacyDao extends FunSuite {
     val res = for(channel <- channels) yield time {
       Redistest.bmdao.getMessagesByChannel("", channel, null, null).size
     }
-    printRes("jedis GetChannel legacy DAO", res)
+    printRes("jedis GetChannel legacy DAO      ", res)
   }
 
 }
