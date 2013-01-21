@@ -3,6 +3,8 @@ Redis Backplane Speed Tests
 
 Profiles redis read speeds for data structures similar to backplane messages (maps)
 
+Setup
+-----
 
 1. Obtain a fresh redis database from v2012.46_RC_7 staging or production(slave),
    initialize and restart your local redis with it.
@@ -19,7 +21,8 @@ runs com.janrain.redistest.ConvertFromBp, which creates a copy of each message i
 also removes the expiry for all existing v1_message_* entries
 
 
-3. Run tests:
+Run tests
+---------
 
 Running all tests in one pass / same JVM instance with `sbt test` seems to favor the tests running last,
 so run them individually:
