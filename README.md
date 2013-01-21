@@ -41,8 +41,8 @@ so run them individually:
 
 executes and times Redistest.testSize "getChannelMessages" operations, using:
 
-- **legacy DAO**: the actual BackplaneMessageDAO.getMessagesByChannel from the 2012.46_RC7 jar
-  performs sorting (which the other tests do not do)
+- **legacy DAO**: the actual BackplaneMessageDAO.getMessagesByChannel from the 2012.46_RC7 jar;
+  this performs sorting (which the other tests do not do)
 
 
 - **JavaSerialized**: reads the java serialized messages
